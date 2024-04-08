@@ -18,7 +18,6 @@ export async function generateMetadata({ params }: PropsType) {
     }
 }
 
-
 export default async function User({ params }: PropsType) {
     const { id, about, created, karma } = await getUser(params.id)
     const data = [

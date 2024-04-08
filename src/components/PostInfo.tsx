@@ -25,7 +25,8 @@ export default function PostInfo({ data, justify = 'space-between', gap = 0 }: P
                 : <Link href={`/posts/${id}`}>#{id}</Link>
             }
             <Icon key={'by' + by} data={<UserLink by={by} />} icon={<UserOutlined />} />
-            <Icon key={'descendants' + descendants} data={descendants} icon={<CommentOutlined />} />
+            {descendants &&
+                <Icon key={'descendants' + descendants} data={descendants} icon={<CommentOutlined />} />}
             <Icon key={'time' + time} data={toDate(time, true)} icon={<CalendarOutlined />} />
         </Flex>
     )

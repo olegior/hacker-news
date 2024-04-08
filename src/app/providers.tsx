@@ -13,11 +13,9 @@ export function Providers({ children }: { children: React.ReactNode }) {
 
     useEffect(() => {
         window.matchMedia('(prefers-color-scheme: dark)')
-            .addEventListener('change', ({ matches }) => {
-                matches
-                    ? setTheme('darkAlgorithm')
-                    : setTheme('defaultAlgorithm')
-            })
+            .matches
+            ? setTheme('darkAlgorithm')
+            : setTheme('defaultAlgorithm')
     }, [])
 
     return (

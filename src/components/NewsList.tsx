@@ -5,6 +5,7 @@ import NewsCard from './NewsCard';
 import { useQuery } from '@tanstack/react-query'
 import { getNews } from '@/lib/helpers/api';
 import UpdateButton from "./UpdateButton";
+import { Fragment } from "react";
 
 export default function NewsList({ route }: { route: string }) {
 
@@ -34,8 +35,8 @@ export default function NewsList({ route }: { route: string }) {
         <>
             <List
                 dataSource={data} size="large"
-                renderItem={(item: ItemType) => {
-                    return !isFetching ? setListItem(item) : null
+                renderItem={(item: ItemType, id: number) => {
+                    return !isFetching ? setListItem(item) : <Fragment key={id}></Fragment>
                 }}
                 pagination={{
                     pageSize: 10,

@@ -17,6 +17,7 @@ export default function Article({ id }: { id: number }) {
         queryKey: [id],
         queryFn: () => getData(id),
         staleTime: 10000,
+        refetchOnWindowFocus: false
     })
 
     if (!data) {
@@ -35,7 +36,7 @@ export default function Article({ id }: { id: number }) {
                 {url && <Link href={url} className={'text-wrap max-w-full break-all'}>{url}</Link>}
                 {kids && <CommentsGroup kids={kids} />}
             </Flex>
-            <FloatButton.BackTop tooltip="scroll to top"/>
+            <FloatButton.BackTop tooltip="scroll to top" />
         </Card>
     )
 }
